@@ -21,12 +21,32 @@ plus.addEventListener('click', function () {
     counter.innerText++
 })
 
-let minus = document.querySelector("#minus"
+let minus = document.querySelector("#minus")
 minus.addEventListener('click', function () {
     counter.innerText--
 })
-
+let likes = {}
 let heart = document.querySelector("#heart")
 heart.addEventListener('click', function () {
-    heart.innerText++
+    let currentCount = counter.innerText
+    if (likes[currentCount]) {
+        likes[currentCount] += 1
+    } else {
+        likes[currentCount] = 1
+    }
+  likingIt() 
 })
+let likeList = document.querySelector('.likes')
+
+
+function likingIt() {
+    likeList.innerHTML = ""
+    for (var key in likes) {
+        let number = key
+        let numberOfLikes = likes[key]
+        let li = `<li>The number ${number} was liked ${numberOfLikes} times!</li>`
+        document.querySelector(".likes").innerHTML += li
+    }
+}
+
+
