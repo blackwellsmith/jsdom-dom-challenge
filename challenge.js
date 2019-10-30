@@ -45,7 +45,7 @@ function likingIt() {
         let number = key
         let numberOfLikes = likes[key]
         let li = `<li>The number ${number} was liked ${numberOfLikes} times!</li>`
-        document.querySelector(".likes").innerHTML += li
+        likeList.innerHTML += li
     }
 }
 
